@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		BB3BBB942FE45CC300BB48F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB3BBB7E2FE45CC300BB48F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB3BBB852FE45CC300BB48F9;
+			remoteInfo = SideButtonControl;
+		};
+		BB3BBB9E2FE45CC300BB48F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB3BBB7E2FE45CC300BB48F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB3BBB852FE45CC300BB48F9;
+			remoteInfo = SideButtonControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BB3BBB862FE45CC300BB48F9 /* SideButtonControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideButtonControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB3BBB932FE45CC300BB48F9 /* SideButtonControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SideButtonControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB3BBB9D2FE45CC300BB48F9 /* SideButtonControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SideButtonControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BB3BBB882FE45CC300BB48F9 /* SideButtonControl */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SideButtonControl;
+			sourceTree = "<group>";
+		};
+		BB3BBB962FE45CC300BB48F9 /* SideButtonControlTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SideButtonControlTests;
+			sourceTree = "<group>";
+		};
+		BB3BBBA02FE45CC300BB48F9 /* SideButtonControlUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SideButtonControlUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB3BBB832FE45CC300BB48F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB3BBB902FE45CC300BB48F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB3BBB9A2FE45CC300BB48F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB3BBB7D2FE45CC300BB48F9 = {
+			isa = PBXGroup;
+			children = (
+				BB3BBB882FE45CC300BB48F9 /* SideButtonControl */,
+				BB3BBB962FE45CC300BB48F9 /* SideButtonControlTests */,
+				BB3BBBA02FE45CC300BB48F9 /* SideButtonControlUITests */,
+				BB3BBB872FE45CC300BB48F9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BB3BBB872FE45CC300BB48F9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB3BBB862FE45CC300BB48F9 /* SideButtonControl.app */,
+				BB3BBB932FE45CC300BB48F9 /* SideButtonControlTests.xctest */,
+				BB3BBB9D2FE45CC300BB48F9 /* SideButtonControlUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB3BBB852FE45CC300BB48F9 /* SideButtonControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB3BBBA72FE45CC300BB48F9 /* Build configuration list for PBXNativeTarget "SideButtonControl" */;
+			buildPhases = (
+				BB3BBB822FE45CC300BB48F9 /* Sources */,
+				BB3BBB832FE45CC300BB48F9 /* Frameworks */,
+				BB3BBB842FE45CC300BB48F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				BB3BBB882FE45CC300BB48F9 /* SideButtonControl */,
+			);
+			name = SideButtonControl;
+			packageProductDependencies = (
+			);
+			productName = SideButtonControl;
+			productReference = BB3BBB862FE45CC300BB48F9 /* SideButtonControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BB3BBB922FE45CC300BB48F9 /* SideButtonControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB3BBBAA2FE45CC300BB48F9 /* Build configuration list for PBXNativeTarget "SideButtonControlTests" */;
+			buildPhases = (
+				BB3BBB8F2FE45CC300BB48F9 /* Sources */,
+				BB3BBB902FE45CC300BB48F9 /* Frameworks */,
+				BB3BBB912FE45CC300BB48F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB3BBB952FE45CC300BB48F9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BB3BBB962FE45CC300BB48F9 /* SideButtonControlTests */,
+			);
+			name = SideButtonControlTests;
+			packageProductDependencies = (
+			);
+			productName = SideButtonControlTests;
+			productReference = BB3BBB932FE45CC300BB48F9 /* SideButtonControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BB3BBB9C2FE45CC300BB48F9 /* SideButtonControlUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB3BBBAD2FE45CC300BB48F9 /* Build configuration list for PBXNativeTarget "SideButtonControlUITests" */;
+			buildPhases = (
+				BB3BBB992FE45CC300BB48F9 /* Sources */,
+				BB3BBB9A2FE45CC300BB48F9 /* Frameworks */,
+				BB3BBB9B2FE45CC300BB48F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB3BBB9F2FE45CC300BB48F9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BB3BBBA02FE45CC300BB48F9 /* SideButtonControlUITests */,
+			);
+			name = SideButtonControlUITests;
+			packageProductDependencies = (
+			);
+			productName = SideButtonControlUITests;
+			productReference = BB3BBB9D2FE45CC300BB48F9 /* SideButtonControlUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB3BBB7E2FE45CC300BB48F9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2650;
+				LastUpgradeCheck = 2650;
+				TargetAttributes = {
+					BB3BBB852FE45CC300BB48F9 = {
+						CreatedOnToolsVersion = 26.5;
+					};
+					BB3BBB922FE45CC300BB48F9 = {
+						CreatedOnToolsVersion = 26.5;
+						TestTargetID = BB3BBB852FE45CC300BB48F9;
+					};
+					BB3BBB9C2FE45CC300BB48F9 = {
+						CreatedOnToolsVersion = 26.5;
+						TestTargetID = BB3BBB852FE45CC300BB48F9;
+					};
+				};
+			};
+			buildConfigurationList = BB3BBB812FE45CC300BB48F9 /* Build configuration list for PBXProject "SideButtonControl" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB3BBB7D2FE45CC300BB48F9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = BB3BBB872FE45CC300BB48F9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB3BBB852FE45CC300BB48F9 /* SideButtonControl */,
+				BB3BBB922FE45CC300BB48F9 /* SideButtonControlTests */,
+				BB3BBB9C2FE45CC300BB48F9 /* SideButtonControlUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB3BBB842FE45CC300BB48F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB3BBB912FE45CC300BB48F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB3BBB9B2FE45CC300BB48F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB3BBB822FE45CC300BB48F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB3BBB8F2FE45CC300BB48F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB3BBB992FE45CC300BB48F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BB3BBB952FE45CC300BB48F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB3BBB852FE45CC300BB48F9 /* SideButtonControl */;
+			targetProxy = BB3BBB942FE45CC300BB48F9 /* PBXContainerItemProxy */;
+		};
+		BB3BBB9F2FE45CC300BB48F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB3BBB852FE45CC300BB48F9 /* SideButtonControl */;
+			targetProxy = BB3BBB9E2FE45CC300BB48F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BB3BBBA52FE45CC300BB48F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 64AH2ZPY55;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BB3BBBA62FE45CC300BB48F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 64AH2ZPY55;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		BB3BBBA82FE45CC300BB48F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64AH2ZPY55;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamzatfekci..SideButtonControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BB3BBBA92FE45CC300BB48F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64AH2ZPY55;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamzatfekci..SideButtonControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BB3BBBAB2FE45CC300BB48F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64AH2ZPY55;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamzatfekci..SideButtonControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SideButtonControl.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SideButtonControl";
+			};
+			name = Debug;
+		};
+		BB3BBBAC2FE45CC300BB48F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64AH2ZPY55;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamzatfekci..SideButtonControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SideButtonControl.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SideButtonControl";
+			};
+			name = Release;
+		};
+		BB3BBBAE2FE45CC300BB48F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64AH2ZPY55;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamzatfekci..SideButtonControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SideButtonControl;
+			};
+			name = Debug;
+		};
+		BB3BBBAF2FE45CC300BB48F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64AH2ZPY55;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamzatfekci..SideButtonControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SideButtonControl;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB3BBB812FE45CC300BB48F9 /* Build configuration list for PBXProject "SideButtonControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB3BBBA52FE45CC300BB48F9 /* Debug */,
+				BB3BBBA62FE45CC300BB48F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB3BBBA72FE45CC300BB48F9 /* Build configuration list for PBXNativeTarget "SideButtonControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB3BBBA82FE45CC300BB48F9 /* Debug */,
+				BB3BBBA92FE45CC300BB48F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB3BBBAA2FE45CC300BB48F9 /* Build configuration list for PBXNativeTarget "SideButtonControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB3BBBAB2FE45CC300BB48F9 /* Debug */,
+				BB3BBBAC2FE45CC300BB48F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB3BBBAD2FE45CC300BB48F9 /* Build configuration list for PBXNativeTarget "SideButtonControlUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB3BBBAE2FE45CC300BB48F9 /* Debug */,
+				BB3BBBAF2FE45CC300BB48F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BB3BBB7E2FE45CC300BB48F9 /* Project object */;
+}
