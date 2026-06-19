@@ -19,4 +19,8 @@ final class SideButtonControlAppDelegate: NSObject, NSApplicationDelegate {
         container?.showSettings()
         return true
     }
+
+    func applicationWillTerminate(_ notification: Notification) {
+        container?.stop()
+    }
 }

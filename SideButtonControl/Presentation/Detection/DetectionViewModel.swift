@@ -26,6 +26,7 @@ final class DetectionViewModel {
 
     private(set) var permissionSnapshot: InputPermissionSnapshot = .unknown
     private(set) var isRunning = false
+    private(set) var isExternalDisplayAvailable = true
     private(set) var events: [DetectedMouseEventViewData] = []
     private(set) var lastErrorMessage: String?
     private(set) var bindings: ButtonBindingSet
@@ -42,7 +43,7 @@ final class DetectionViewModel {
     }
 
     var canStartDetection: Bool {
-        !isRunning
+        !isRunning && isExternalDisplayAvailable
     }
 
     var futureRemapSummary: String {
@@ -55,6 +56,13 @@ final class DetectionViewModel {
 
     func refreshPermissions() {
         permissionSnapshot = useCase.permissionSnapshot()
+    }
+
+    func setExternalDisplayAvailable(_ available: Bool) {
+        isExternalDisplayAvailable = available
+        if !available {
+            lastErrorMessage = nil
+        }
     }
 
     /// Diagnostics feed is only needed while the window is visible. Gating it keeps the
@@ -75,6 +83,10 @@ final class DetectionViewModel {
     }
 
     func startDetectionIfAuthorized() {
+        guard isExternalDisplayAvailable else {
+            return
+        }
+
         refreshPermissions()
 
         guard permissionSnapshot.canRemap else {
@@ -86,6 +98,11 @@ final class DetectionViewModel {
     }
 
     func startDetection() {
+        guard isExternalDisplayAvailable else {
+            lastErrorMessage = "Harici ekran bağlı değil."
+            return
+        }
+
         refreshPermissions()
 
         if !permissionSnapshot.canRemap {
@@ -119,6 +136,13 @@ final class DetectionViewModel {
         eventTask = nil
         useCase.stopDetection()
         isRunning = false
+    }
+
+    func suspendDetection() {
+        useCase.setEventsObserved(false)
+        stopDetection()
+        clearEvents()
+        lastErrorMessage = nil
     }
 
     func clearEvents() {

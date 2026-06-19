@@ -50,9 +50,9 @@ struct SettingsView: View {
     private var footer: some View {
         HStack(spacing: 8) {
             Circle()
-                .fill(viewModel.isRunning ? Color.green : Color.secondary)
+                .fill(footerStatusColor)
                 .frame(width: 8, height: 8)
-            Text(viewModel.isRunning ? "Çalışıyor" : "Durduruldu")
+            Text(footerStatusText)
                 .font(.callout)
                 .foregroundStyle(.secondary)
 
@@ -69,6 +69,22 @@ struct SettingsView: View {
         }
         .padding(.horizontal, 22)
         .padding(.vertical, 14)
+    }
+
+    private var footerStatusText: String {
+        if !viewModel.isExternalDisplayAvailable {
+            return "Harici ekran yok"
+        }
+
+        return viewModel.isRunning ? "Çalışıyor" : "Durduruldu"
+    }
+
+    private var footerStatusColor: Color {
+        if !viewModel.isExternalDisplayAvailable {
+            return .orange
+        }
+
+        return viewModel.isRunning ? .green : .secondary
     }
 }
 

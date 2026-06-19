@@ -2,6 +2,7 @@
 final class AppContainer {
     let detectionViewModel: DetectionViewModel
     private let statusBarController: StatusBarController
+    private let displayDrivenDetectionController: DisplayDrivenDetectionController
 
     init() {
         // Apps that ignore the navigation swipe gesture and only respond to their
@@ -35,12 +36,16 @@ final class AppContainer {
         )
         self.detectionViewModel = DetectionViewModel(useCase: useCase)
         self.statusBarController = StatusBarController(viewModel: detectionViewModel)
+        self.displayDrivenDetectionController = DisplayDrivenDetectionController(
+            viewModel: detectionViewModel,
+            displayMonitor: AppKitExternalDisplayMonitor(),
+            statusBarController: statusBarController
+        )
     }
 
     func start() {
         statusBarController.installMenuBarIcon()
-        detectionViewModel.startDetectionIfAuthorized()
-        statusBarController.refreshStatusItem()
+        displayDrivenDetectionController.start()
     }
 
     func showSettings() {
@@ -51,5 +56,9 @@ final class AppContainer {
     func showDiagnostics() {
         statusBarController.installMenuBarIcon()
         statusBarController.showDiagnostics()
+    }
+
+    func stop() {
+        displayDrivenDetectionController.stop()
     }
 }

@@ -29,12 +29,21 @@ final class StatusBarController: NSObject {
     }
 
     func hideMenuBarIconUntilRelaunch() {
+        removeMenuBarIcon()
+    }
+
+    func removeMenuBarIcon() {
         guard let statusItem else {
             return
         }
 
         NSStatusBar.system.removeStatusItem(statusItem)
         self.statusItem = nil
+    }
+
+    func closeInteractiveWindows() {
+        diagnosticsWindow?.close()
+        settingsWindow?.close()
     }
 
     func showSettings() {
@@ -101,7 +110,7 @@ final class StatusBarController: NSObject {
 
         menu.addItem(.separator())
         let toggleItem = NSMenuItem(
-            title: viewModel.isRunning ? "Eşlemeyi Durdur" : "Eşlemeyi Başlat",
+            title: toggleTitle,
             action: #selector(toggleRemapping),
             keyEquivalent: ""
         )
@@ -109,6 +118,7 @@ final class StatusBarController: NSObject {
             systemSymbolName: viewModel.isRunning ? "power.circle" : "bolt.circle",
             accessibilityDescription: nil
         )
+        toggleItem.isEnabled = viewModel.isExternalDisplayAvailable
         menu.addItem(toggleItem)
         let settingsItem = NSMenuItem(
             title: "Ayarlar...",
@@ -164,6 +174,10 @@ final class StatusBarController: NSObject {
     }
 
     private var statusTitle: String {
+        if !viewModel.isExternalDisplayAvailable {
+            return "SideButtonControl: Harici Ekran Yok"
+        }
+
         if viewModel.isRunning {
             return "SideButtonControl: Çalışıyor"
         }
@@ -173,6 +187,14 @@ final class StatusBarController: NSObject {
         }
 
         return "SideButtonControl: İzin Gerekli"
+    }
+
+    private var toggleTitle: String {
+        if !viewModel.isExternalDisplayAvailable {
+            return "Harici Ekran Yok"
+        }
+
+        return viewModel.isRunning ? "Eşlemeyi Durdur" : "Eşlemeyi Başlat"
     }
 
     @objc
@@ -218,7 +240,7 @@ final class StatusBarController: NSObject {
 
     @objc
     private func quit() {
-        viewModel.stopDetection()
+        viewModel.suspendDetection()
         NSApp.terminate(nil)
     }
 
