@@ -47,7 +47,7 @@ final class DetectionViewModel {
     }
 
     var futureRemapSummary: String {
-        "AX \(label(for: permissionSnapshot.accessibility)) / Event Post \(label(for: permissionSnapshot.posting))"
+        "Erişilebilirlik \(label(for: permissionSnapshot.accessibility))"
     }
 
     var remapPermissionState: InputPermissionState {
@@ -75,10 +75,12 @@ final class DetectionViewModel {
         useCase.setEventsObserved(false)
     }
 
-    func requestListeningPermission() {
-        permissionSnapshot = useCase.requestRemapAccess()
+    func requestPermission() {
+        permissionSnapshot = useCase.requestAccess()
         if !permissionSnapshot.canRemap {
-            lastErrorMessage = missingRemapPermissionMessage
+            lastErrorMessage = missingPermissionMessage
+        } else {
+            lastErrorMessage = nil
         }
     }
 
@@ -90,7 +92,7 @@ final class DetectionViewModel {
         refreshPermissions()
 
         guard permissionSnapshot.canRemap else {
-            lastErrorMessage = missingRemapPermissionMessage
+            lastErrorMessage = missingPermissionMessage
             return
         }
 
@@ -106,9 +108,9 @@ final class DetectionViewModel {
         refreshPermissions()
 
         if !permissionSnapshot.canRemap {
-            permissionSnapshot = useCase.requestRemapAccess()
+            permissionSnapshot = useCase.requestAccess()
             guard permissionSnapshot.canRemap else {
-                lastErrorMessage = missingRemapPermissionMessage
+                lastErrorMessage = missingPermissionMessage
                 return
             }
         }
@@ -149,9 +151,10 @@ final class DetectionViewModel {
         events.removeAll()
     }
 
-    func openInputMonitoringSettings() {
-        if !useCase.openListeningSettings() {
-            lastErrorMessage = "Giriş İzleme ayarları açılamadı."
+    func openPermissionSettings() {
+        permissionSnapshot = useCase.requestAccess()
+        if !useCase.openSettings() {
+            lastErrorMessage = "Erişilebilirlik ayarları açılamadı."
         }
     }
 
@@ -186,7 +189,7 @@ final class DetectionViewModel {
         }
     }
 
-    private var missingRemapPermissionMessage: String {
-        "Remap için Giriş İzleme, Erişilebilirlik ve event gönderme izinleri gerekiyor."
+    private var missingPermissionMessage: String {
+        "Remap için Erişilebilirlik izni gerekiyor. İzin penceresini onayla veya sistem ayarlarından SideButtonControl'ü aç."
     }
 }

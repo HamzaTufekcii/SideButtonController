@@ -17,8 +17,6 @@ struct SideButtonControlTests {
         let monitor = FakeMouseEventMonitor()
         let permissions = FakePermissionChecker(
             snapshot: InputPermissionSnapshot(
-                listening: .missing,
-                posting: .missing,
                 accessibility: .missing
             )
         )
@@ -27,9 +25,9 @@ struct SideButtonControlTests {
         viewModel.startDetection()
 
         #expect(monitor.startCallCount == 0)
-        #expect(permissions.requestRemapCallCount == 1)
+        #expect(permissions.requestCallCount == 1)
         #expect(viewModel.isRunning == false)
-        #expect(viewModel.lastErrorMessage == "Remap için Giriş İzleme, Erişilebilirlik ve event gönderme izinleri gerekiyor.")
+        #expect(viewModel.lastErrorMessage == "Remap için Erişilebilirlik izni gerekiyor. İzin penceresini onayla veya sistem ayarlarından SideButtonControl'ü aç.")
     }
 
     @Test
@@ -38,8 +36,6 @@ struct SideButtonControlTests {
         let monitor = FakeMouseEventMonitor()
         let permissions = FakePermissionChecker(
             snapshot: InputPermissionSnapshot(
-                listening: .granted,
-                posting: .granted,
                 accessibility: .granted
             )
         )
@@ -58,8 +54,6 @@ struct SideButtonControlTests {
         let monitor = FakeMouseEventMonitor()
         let permissions = FakePermissionChecker(
             snapshot: InputPermissionSnapshot(
-                listening: .granted,
-                posting: .granted,
                 accessibility: .granted
             )
         )
@@ -69,7 +63,6 @@ struct SideButtonControlTests {
 
         #expect(monitor.startCallCount == 1)
         #expect(permissions.requestCallCount == 0)
-        #expect(permissions.requestRemapCallCount == 0)
         #expect(viewModel.isRunning)
     }
 
@@ -79,8 +72,6 @@ struct SideButtonControlTests {
         let monitor = FakeMouseEventMonitor()
         let permissions = FakePermissionChecker(
             snapshot: InputPermissionSnapshot(
-                listening: .missing,
-                posting: .missing,
                 accessibility: .missing
             )
         )
@@ -90,7 +81,6 @@ struct SideButtonControlTests {
 
         #expect(monitor.startCallCount == 0)
         #expect(permissions.requestCallCount == 0)
-        #expect(permissions.requestRemapCallCount == 0)
         #expect(viewModel.isRunning == false)
     }
 
@@ -100,8 +90,6 @@ struct SideButtonControlTests {
         let monitor = FakeMouseEventMonitor()
         let permissions = FakePermissionChecker(
             snapshot: InputPermissionSnapshot(
-                listening: .granted,
-                posting: .granted,
                 accessibility: .granted
             )
         )
@@ -133,8 +121,6 @@ struct SideButtonControlTests {
         let monitor = FakeMouseEventMonitor()
         let permissions = FakePermissionChecker(
             snapshot: InputPermissionSnapshot(
-                listening: .granted,
-                posting: .granted,
                 accessibility: .granted
             )
         )
@@ -168,8 +154,6 @@ struct SideButtonControlTests {
         let monitor = FakeMouseEventMonitor()
         let permissions = FakePermissionChecker(
             snapshot: InputPermissionSnapshot(
-                listening: .granted,
-                posting: .granted,
                 accessibility: .granted
             )
         )
@@ -277,7 +261,7 @@ struct SideButtonControlTests {
         let monitor = FakeMouseEventMonitor()
         let store = FakeButtonBindingStore()
         let permissions = FakePermissionChecker(
-            snapshot: InputPermissionSnapshot(listening: .granted, posting: .granted, accessibility: .granted)
+            snapshot: InputPermissionSnapshot(accessibility: .granted)
         )
         let useCase = SideButtonDetectionUseCase(
             monitor: monitor,
@@ -326,8 +310,6 @@ struct SideButtonControlTests {
         let monitor = FakeMouseEventMonitor()
         let permissions = FakePermissionChecker(
             snapshot: InputPermissionSnapshot(
-                listening: .granted,
-                posting: .granted,
                 accessibility: .granted
             )
         )
@@ -471,7 +453,6 @@ private struct StubFrontmostApplicationProvider: FrontmostApplicationProviding {
 private final class FakePermissionChecker: InputPermissionChecking {
     private var currentSnapshot: InputPermissionSnapshot
     private(set) var requestCallCount = 0
-    private(set) var requestRemapCallCount = 0
 
     init(snapshot: InputPermissionSnapshot) {
         self.currentSnapshot = snapshot
@@ -481,13 +462,8 @@ private final class FakePermissionChecker: InputPermissionChecking {
         currentSnapshot
     }
 
-    func requestListeningAccess() -> InputPermissionSnapshot {
+    func requestAccess() -> InputPermissionSnapshot {
         requestCallCount += 1
-        return currentSnapshot
-    }
-
-    func requestRemapAccess() -> InputPermissionSnapshot {
-        requestRemapCallCount += 1
         return currentSnapshot
     }
 }

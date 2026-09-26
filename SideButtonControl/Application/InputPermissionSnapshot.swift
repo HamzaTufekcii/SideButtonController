@@ -9,17 +9,13 @@ nonisolated enum InputPermissionState: Equatable, Sendable {
 }
 
 nonisolated struct InputPermissionSnapshot: Equatable, Sendable {
-    let listening: InputPermissionState
-    let posting: InputPermissionState
     let accessibility: InputPermissionState
 
     static let unknown = InputPermissionSnapshot(
-        listening: .unknown,
-        posting: .unknown,
         accessibility: .unknown
     )
 
     var canRemap: Bool {
-        listening.isGranted && posting.isGranted && accessibility.isGranted
+        accessibility.isGranted
     }
 }

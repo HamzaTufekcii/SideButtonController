@@ -16,7 +16,6 @@
       "size" : "32x32"
     },
     {
-      "filename" : "icons8-mouse-64.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
@@ -42,6 +41,7 @@
       "size" : "256x256"
     },
     {
+      "filename" : "cursor.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"

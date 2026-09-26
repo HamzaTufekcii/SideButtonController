@@ -34,17 +34,13 @@ final class SideButtonDetectionUseCase {
         permissionChecker.snapshot()
     }
 
-    func requestListeningAccess() -> InputPermissionSnapshot {
-        permissionChecker.requestListeningAccess()
-    }
-
-    func requestRemapAccess() -> InputPermissionSnapshot {
-        permissionChecker.requestRemapAccess()
+    func requestAccess() -> InputPermissionSnapshot {
+        permissionChecker.requestAccess()
     }
 
     @discardableResult
-    func openListeningSettings() -> Bool {
-        settingsOpener?.openListeningSettings() ?? false
+    func openSettings() -> Bool {
+        settingsOpener?.openSettings() ?? false
     }
 
     func setEventsObserved(_ observed: Bool) {

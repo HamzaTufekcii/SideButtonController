@@ -120,13 +120,27 @@ final class StatusBarController: NSObject {
         )
         toggleItem.isEnabled = viewModel.isExternalDisplayAvailable
         menu.addItem(toggleItem)
+        let permissionItem = NSMenuItem(
+            title: "Erişilebilirlik İzni İste...",
+            action: #selector(requestAccessibilityPermission),
+            keyEquivalent: "i"
+        )
+        permissionItem.image = NSImage(systemSymbolName: "hand.raised", accessibilityDescription: nil)
+        menu.addItem(permissionItem)
         let settingsItem = NSMenuItem(
+            title: "Erişilebilirlik Ayarları...",
+            action: #selector(openAccessibilitySettings),
+            keyEquivalent: ""
+        )
+        settingsItem.image = NSImage(systemSymbolName: "gear", accessibilityDescription: nil)
+        menu.addItem(settingsItem)
+        let appSettingsItem = NSMenuItem(
             title: "Ayarlar...",
             action: #selector(openSettings),
             keyEquivalent: ","
         )
-        settingsItem.image = NSImage(systemSymbolName: "slider.horizontal.3", accessibilityDescription: nil)
-        menu.addItem(settingsItem)
+        appSettingsItem.image = NSImage(systemSymbolName: "slider.horizontal.3", accessibilityDescription: nil)
+        menu.addItem(appSettingsItem)
         menu.addItem(
             NSMenuItem(
                 title: "Tanılamayı Aç...",
@@ -220,6 +234,18 @@ final class StatusBarController: NSObject {
         } else {
             viewModel.startDetection()
         }
+        refreshMenu()
+    }
+
+    @objc
+    private func requestAccessibilityPermission() {
+        viewModel.requestPermission()
+        refreshMenu()
+    }
+
+    @objc
+    private func openAccessibilitySettings() {
+        viewModel.openPermissionSettings()
         refreshMenu()
     }
 

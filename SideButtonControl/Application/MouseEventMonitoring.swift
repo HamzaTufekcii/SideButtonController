@@ -7,7 +7,7 @@ enum MouseEventMonitorError: Error, Equatable, Sendable {
     var userMessage: String {
         switch self {
         case .eventTapCreationFailed:
-            "Event tap could not be created. Check Input Monitoring permission and sandbox settings."
+            "Event tap could not be created. Check Accessibility permission and sandbox settings."
         case .runLoopSourceCreationFailed:
             "Event tap run loop source could not be created."
         }
@@ -46,11 +46,10 @@ extension MouseEventMonitoring {
 
 protocol InputPermissionChecking: AnyObject {
     func snapshot() -> InputPermissionSnapshot
-    func requestListeningAccess() -> InputPermissionSnapshot
-    func requestRemapAccess() -> InputPermissionSnapshot
+    func requestAccess() -> InputPermissionSnapshot
 }
 
 protocol InputPermissionSettingsOpening: AnyObject {
     @discardableResult
-    func openListeningSettings() -> Bool
+    func openSettings() -> Bool
 }

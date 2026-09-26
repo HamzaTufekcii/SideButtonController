@@ -34,11 +34,7 @@ struct DetectionView: View {
         Grid(alignment: .leading, horizontalSpacing: 18, verticalSpacing: 8) {
             GridRow {
                 PermissionBadge(
-                    title: "Giriş İzleme",
-                    state: viewModel.permissionSnapshot.listening
-                )
-                PermissionBadge(
-                    title: "Remap",
+                    title: "Erişilebilirlik",
                     state: viewModel.remapPermissionState,
                     detail: viewModel.futureRemapSummary
                 )
@@ -49,15 +45,16 @@ struct DetectionView: View {
     private var controls: some View {
         HStack(spacing: 10) {
             Button {
-                viewModel.requestListeningPermission()
+                viewModel.requestPermission()
             } label: {
-                Label("İzin İste", systemImage: "hand.raised")
+                Label("Erişilebilirlik İzni İste", systemImage: "hand.raised")
             }
+            .keyboardShortcut("i", modifiers: [.command])
 
             Button {
-                viewModel.openInputMonitoringSettings()
+                viewModel.openPermissionSettings()
             } label: {
-                Label("Ayarlar", systemImage: "gear")
+                Label("Erişilebilirlik Ayarları", systemImage: "gear")
             }
 
             Button {

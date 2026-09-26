@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "2650"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Reset Debug TCC permissions"
+               scriptText = "if [ &quot;${CONFIGURATION}&quot; = &quot;Debug&quot; ]; then&#10;  BUNDLE_ID=&quot;${PRODUCT_BUNDLE_IDENTIFIER:-com.hamzatufekci.SideButtonControl}&quot;&#10;  /usr/bin/tccutil reset Accessibility &quot;${BUNDLE_ID}&quot; || true&#10;  /usr/bin/tccutil reset ListenEvent &quot;${BUNDLE_ID}&quot; || true&#10;  /usr/bin/tccutil reset PostEvent &quot;${BUNDLE_ID}&quot; || true&#10;fi&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "BB3BBB852FE45CC300BB48F9"
+                     BuildableName = "SideButtonControl.app"
+                     BlueprintName = "SideButtonControl"
+                     ReferencedContainer = "container:SideButtonControl.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BB3BBB852FE45CC300BB48F9"
+               BuildableName = "SideButtonControl.app"
+               BlueprintName = "SideButtonControl"
+               ReferencedContainer = "container:SideButtonControl.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BB3BBB922FE45CC300BB48F9"
+               BuildableName = "SideButtonControlTests.xctest"
+               BlueprintName = "SideButtonControlTests"
+               ReferencedContainer = "container:SideButtonControl.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BB3BBB9C2FE45CC300BB48F9"
+               BuildableName = "SideButtonControlUITests.xctest"
+               BlueprintName = "SideButtonControlUITests"
+               ReferencedContainer = "container:SideButtonControl.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BB3BBB852FE45CC300BB48F9"
+            BuildableName = "SideButtonControl.app"
+            BlueprintName = "SideButtonControl"
+            ReferencedContainer = "container:SideButtonControl.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BB3BBB852FE45CC300BB48F9"
+            BuildableName = "SideButtonControl.app"
+            BlueprintName = "SideButtonControl"
+            ReferencedContainer = "container:SideButtonControl.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
