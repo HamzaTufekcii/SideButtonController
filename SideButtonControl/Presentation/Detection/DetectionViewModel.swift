@@ -42,6 +42,16 @@ final class DetectionViewModel {
         bindings = useCase.bindings
     }
 
+    var reverseMouseScroll: Bool {
+        get {
+            bindings.reverseMouseScroll
+        }
+        set {
+            useCase.updateReverseMouseScroll(newValue)
+            bindings = useCase.bindings
+        }
+    }
+
     var canStartDetection: Bool {
         !isRunning && isExternalDisplayAvailable
     }

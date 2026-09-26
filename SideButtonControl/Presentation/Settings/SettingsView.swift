@@ -40,6 +40,30 @@ struct SettingsView: View {
             .opacity(appeared ? 1 : 0)
             .offset(y: appeared ? 0 : 8)
             .animation(.easeOut(duration: 0.35), value: appeared)
+
+            VStack(alignment: .leading, spacing: 6) {
+                Toggle(isOn: $viewModel.reverseMouseScroll) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Fare Tekerleği Yönünü Tersine Çevir")
+                            .font(.subheadline.weight(.medium))
+                        Text("Trackpad doğal kaydırmasını korurken sadece harici farenin kaydırma yönünü düzeltir.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                .toggleStyle(.switch)
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 10)
+            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+            .overlay {
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .strokeBorder(.separator.opacity(0.3), lineWidth: 1)
+            }
+            .frame(maxWidth: 476)
+            .opacity(appeared ? 1 : 0)
+            .offset(y: appeared ? 0 : 8)
+            .animation(.easeOut(duration: 0.35).delay(0.05), value: appeared)
         }
         .frame(maxWidth: .infinity)
         .padding(.top, 24)

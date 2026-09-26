@@ -95,12 +95,12 @@ private struct MouseButtonCallout: View {
     }
 }
 
-private struct MouseButtonConnector: Shape {
+private struct MouseButtonConnector: Shape, Sendable {
     let start: CGPoint
     let end: CGPoint
     let lift: CGFloat
 
-    func path(in rect: CGRect) -> Path {
+    nonisolated func path(in rect: CGRect) -> Path {
         var path = Path()
         let control1 = CGPoint(x: start.x + 42, y: start.y + lift)
         let control2 = CGPoint(x: end.x - 44, y: end.y)

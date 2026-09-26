@@ -5,6 +5,7 @@
 //  Created by Hamza Tüfekçi on 18.06.2026.
 //
 
+import CoreGraphics
 import Foundation
 import Testing
 @testable import SideButtonControl
@@ -366,6 +367,119 @@ struct SideButtonControlTests {
 
         #expect(gesture.dispatchedActions == [.forward])
         #expect(keyboard.dispatchedActions.isEmpty)
+    }
+
+    @Test
+    func mouseScrollEventModifierInvertsDiscreteWheelScroll() {
+        guard let event = CGEvent(
+            scrollWheelEvent2Source: nil,
+            units: .line,
+            wheelCount: 1,
+            wheel1: -3,
+            wheel2: 0,
+            wheel3: 0
+        ) else {
+            Issue.record("Failed to create CGEvent")
+            return
+        }
+
+        #expect(event.getIntegerValueField(.scrollWheelEventIsContinuous) == 0)
+        #expect(event.getIntegerValueField(.scrollWheelEventDeltaAxis1) == -3)
+
+        let modified = MouseScrollEventModifier.processScrollWheel(event: event, reverseScroll: true)
+
+        #expect(modified == true)
+        #expect(event.getIntegerValueField(.scrollWheelEventDeltaAxis1) == 3)
+    }
+
+    @Test
+    func mouseScrollEventModifierIgnoresContinuousTrackpadScroll() {
+        guard let event = CGEvent(
+            scrollWheelEvent2Source: nil,
+            units: .line,
+            wheelCount: 1,
+            wheel1: -5,
+            wheel2: 0,
+            wheel3: 0
+        ) else {
+            Issue.record("Failed to create CGEvent")
+            return
+        }
+
+        event.setIntegerValueField(.scrollWheelEventIsContinuous, value: 1)
+        let initialDelta = event.getIntegerValueField(.scrollWheelEventDeltaAxis1)
+
+        let modified = MouseScrollEventModifier.processScrollWheel(event: event, reverseScroll: true)
+
+        #expect(modified == false)
+        #expect(event.getIntegerValueField(.scrollWheelEventDeltaAxis1) == initialDelta)
+    }
+
+    @Test
+    func mouseScrollEventModifierIgnoresTrackpadWithScrollPhase() {
+        guard let event = CGEvent(
+            scrollWheelEvent2Source: nil,
+            units: .line,
+            wheelCount: 1,
+            wheel1: 8,
+            wheel2: 0,
+            wheel3: 0
+        ) else {
+            Issue.record("Failed to create CGEvent")
+            return
+        }
+
+        event.setIntegerValueField(.scrollWheelEventScrollPhase, value: 1) // Phase began
+        let initialDelta = event.getIntegerValueField(.scrollWheelEventDeltaAxis1)
+
+        let modified = MouseScrollEventModifier.processScrollWheel(event: event, reverseScroll: true)
+
+        #expect(modified == false)
+        #expect(event.getIntegerValueField(.scrollWheelEventDeltaAxis1) == initialDelta)
+    }
+
+    @Test
+    func mouseScrollEventModifierDoesNothingWhenDisabled() {
+        guard let event = CGEvent(
+            scrollWheelEvent2Source: nil,
+            units: .line,
+            wheelCount: 1,
+            wheel1: 5,
+            wheel2: 0,
+            wheel3: 0
+        ) else {
+            Issue.record("Failed to create CGEvent")
+            return
+        }
+
+        let modified = MouseScrollEventModifier.processScrollWheel(event: event, reverseScroll: false)
+
+        #expect(modified == false)
+        #expect(event.getIntegerValueField(.scrollWheelEventDeltaAxis1) == 5)
+    }
+
+    @Test
+    @MainActor
+    func updatingReverseMouseScrollPushesToMonitorAndPersists() {
+        let monitor = FakeMouseEventMonitor()
+        let store = FakeButtonBindingStore()
+        let permissions = FakePermissionChecker(
+            snapshot: InputPermissionSnapshot(accessibility: .granted)
+        )
+        let useCase = SideButtonDetectionUseCase(
+            monitor: monitor,
+            permissionChecker: permissions,
+            bindingStore: store
+        )
+        let viewModel = DetectionViewModel(useCase: useCase)
+
+        #expect(viewModel.reverseMouseScroll == true)
+
+        viewModel.reverseMouseScroll = false
+
+        #expect(viewModel.reverseMouseScroll == false)
+        #expect(monitor.lastBindings?.reverseMouseScroll == false)
+        #expect(store.saved?.reverseMouseScroll == false)
     }
 
     @MainActor

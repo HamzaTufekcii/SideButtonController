@@ -34,6 +34,7 @@ final class CGEventTapMouseEventMonitor: MouseEventMonitoring {
 
         let eventMask = CGEventMask(1 << CGEventType.otherMouseDown.rawValue)
             | CGEventMask(1 << CGEventType.otherMouseUp.rawValue)
+            | CGEventMask(1 << CGEventType.scrollWheel.rawValue)
         let userInfo = Unmanaged.passUnretained(callbackContext).toOpaque()
 
         guard let tap = CGEvent.tapCreate(
@@ -105,6 +106,10 @@ private nonisolated final class EventTapCallbackContext: @unchecked Sendable {
         bindings = newBindings
     }
 
+    var reverseMouseScroll: Bool {
+        bindings.reverseMouseScroll
+    }
+
     var isObserving: Bool {
         observing
     }
@@ -166,6 +171,11 @@ private nonisolated func sideButtonEventTapCallback(
     if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
         context.reenableTap()
         return nil
+    }
+
+    if type == .scrollWheel {
+        MouseScrollEventModifier.processScrollWheel(event: event, reverseScroll: context.reverseMouseScroll)
+        return Unmanaged.passUnretained(event)
     }
 
     guard type == .otherMouseDown || type == .otherMouseUp else {

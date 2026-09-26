@@ -26,6 +26,12 @@ final class SideButtonDetectionUseCase {
         bindingStore?.save(bindings)
     }
 
+    func updateReverseMouseScroll(_ enabled: Bool) {
+        bindings.setReverseMouseScroll(enabled)
+        monitor.setBindings(bindings)
+        bindingStore?.save(bindings)
+    }
+
     func makeEventStream() -> AsyncStream<MouseButtonEvent> {
         monitor.makeEventStream()
     }
